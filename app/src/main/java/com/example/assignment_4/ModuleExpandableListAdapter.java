@@ -14,9 +14,9 @@ public class ModuleExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<Course> courseList;
-    private HashMap<String, List<String>> moduleDataChild;
+    private HashMap<String, List<Module>> moduleDataChild;
 
-    public ModuleExpandableListAdapter(Context context, List<Course> courseList, HashMap<String, List<String>> moduleDataChild) {
+    public ModuleExpandableListAdapter(Context context, List<Course> courseList, HashMap<String, List<Module>> moduleDataChild) {
         this.context = context;
         this.courseList = courseList;
         this.moduleDataChild = moduleDataChild;
@@ -78,7 +78,11 @@ public class ModuleExpandableListAdapter extends BaseExpandableListAdapter {
         }
 
         TextView topicTitle = convertView.findViewById(R.id.topicTitle);
-        topicTitle.setText((String) getChild(groupPosition, childPosition));
+        TextView topicDescription = convertView.findViewById(R.id.topicDescription);
+
+        Module module = (Module) getChild(groupPosition, childPosition);
+        topicTitle.setText(module.getTitle());
+        topicDescription.setText(module.getDescription());
 
         return convertView;
     }

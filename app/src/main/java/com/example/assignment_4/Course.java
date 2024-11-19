@@ -8,9 +8,9 @@ public class Course {
     private double credit;
     private String section;
     private String description; // Added description field
-    private List<String> modules; // This will hold module names
+    private List<Module> modules; // This will hold module names
 
-    public Course(String title, String code, double credit, String section, String description, List<String> modules) {
+    public Course(String title, String code, double credit, String section, String description, List<Module> modules) {
         this.title = title;
         this.code = code;
         this.credit = credit;
@@ -39,7 +39,9 @@ public class Course {
         return description; // Getter for description
     }
 
-    public List<String> getModules() {
+    public List<Module> getModules() {
         return modules;
     }
 }
+
+
